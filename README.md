@@ -1,5 +1,5 @@
 # ngaBandung
-
+[![Build Status](https://travis-ci.org/burhan-arifm/ngabandung.svg?branch=static-pages)](https://travis-ci.org/burhan-arifm/ngabandung)
 pengen jalan-jalan di Kota Bandung, tapi bingung harus naik apa? atau, gak berani naik kendaraan umum gara-gara takut nyasar atau bawa ongkos kurang?
 
 tenang, ngaBandung hadir untuk kamu :wink:
