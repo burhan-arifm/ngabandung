@@ -1,0 +1,30 @@
+language: ruby
+
+sudo: enabled
+
+rvm:
+- 2.4.2
+- 2.0.0
+- 1.9.3
+- jruby-19mode
+- rbx-2
+
+before_install:
+  - sudo apt-get update -q
+  - gem update --system
+  - gem --version
+  
+script:
+  - rails test
+  - bundle exec rake build
+  - bundle exec rake builddoc
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: icjMMvxKIog/d5mPe9gm7Hjhik/YYjzqT0gEdtA0Y8L0doWvI/yMqnUn71OuY1bfdQmJlCQh2uaDehBwX22mqHoPi3sLyuTALxVumF91Ctz9APIYoxPuia6pZKz28SG6fZlHDHcjs8OO0rvfndFadBqhcahPfjlsEBQrLATLO4gjNBGsB5V87g+i0/VAyk+O2v0vg5/Ylmpj7nNOhXPyDagHAs9hFAlCVgaUgigveOpD3Eai2raAme08+wNn8xqNTdMwctoeNLB91Mi0Wm4VWdi3OsACRALayQjb4Y7P9M9tJhCMk1rKLUUxkBHGH+8LdjSb67TROV4mcFRcC1xiOrfZ3g2FbcsNc6wbDvf2dXoV7BNPanGvzMy0N6dXuF11LeaI/VHP8p+sZL4SjdXClJuul/Fq6tw3BkfJanRHLlO4UnVR8WNIjsW1qOlAZ+q4xSVagAbkiOfy/yMvmo4ffItA28Sk7gNdEwqisipQ6SKxm/MUo6H84z/rSm2e/dwqAGThEL7j43Gxgczn4HyPc1HAbvMUREVBsgiTLIIcYMGB06uhD1uwNiiQCMhKzAfiq5ENAgnGEqZUeiq2rqMRE8aqw8+Z5gGrwM+f+Mrp2bPCdzfXlDRBlGMhS8kwRdCXkJpW6ELGG1raWUQnojw3bZOM6ZM0GMHZY6WDuc301Oo=
+  app: ngabandung
+  on:
+    repo: burhan-arifm/ngabandung
+  run:
+    - "rake db:migrate"
