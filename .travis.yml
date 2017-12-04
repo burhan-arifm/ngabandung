@@ -15,6 +15,7 @@ install:
   - gem install rails
   
 script:
+  - rails db:migrate
   - rails test
 
 deploy:
